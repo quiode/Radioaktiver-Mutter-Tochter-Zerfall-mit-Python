@@ -30,6 +30,9 @@ def main() -> None:
     with open("data.csv", "w") as file:
         file.write("Runde;Mutter;Toechter\n")
 
+    with open("data.dat", "w") as file:
+        file.write("Runde Mutter Toechter\n")
+
     for i in range(ANZAHL_RUNDEN):
         mother_nuklids = random.sample(mother_nuklids, int(len(
             mother_nuklids) - len(mother_nuklids)*ZEITSCHRITT*ZERFALLSKONSTANTE_MUTTER))
@@ -42,6 +45,9 @@ def main() -> None:
 
         with open("data.csv", "a") as file:
             file.write(f"{i};{len(mother_nuklids)};{len(child_nuklids)}\n")
+
+        with open("data.dat", "a") as file:
+            file.write(f"{i} {len(mother_nuklids)} {len(child_nuklids)}\n")
 
 
 if __name__ == '__main__':
